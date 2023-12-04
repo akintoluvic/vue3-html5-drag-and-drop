@@ -17,15 +17,14 @@ Run the following commands to install dependencies, format code and run the app:
   npm run dev
 ```
 
-## Update `tsconfig` to allow Vue usage without Typescript interference
-To enable Vue usage without Typescript interference, edit the `tsconfig.json` file and set the `noImplicitAny` property to `false` (to prevent errors while importing `.vue` files). Under the `compilerOptions`, add `"allowJs": true` to enable us write javascript without types. Your `tsconfig.json` should look like this:
+## Update `tsconfig`, so we can write javascript
+To ensure everyone can follow along, we will disable typescript in this project. We will be adding typescript and typing our code at the end of the project. Edit your `tsconfig.app.json` file, under the `compilerOptions`, add `"allowJs": true` to enable us write javascript without types. Your `tsconfig.app.json` should look like this:
 
 ```json
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
   "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
   "exclude": ["src/**/__tests__/*"],
-  "noImplicitAny": false,
   "compilerOptions": {
     "composite": true,
     "allowJs": true,
@@ -89,6 +88,8 @@ const items = ref([
   }
 ])
 ```
+
+To prevent typescript errors, remove the `lang="ts"` attribute from the `script` tag.
 
 ## Render the data in the app
 
@@ -210,4 +211,3 @@ We have successfully implemented drag and drop functionality in our app. You can
 
   ### Issues
   - `Issues with typescript importing from vue`, you can disable typescript in the tsconfig.json file by setting the "noImplicitAny" property to false. This will allow you to import from vue without typescript errors.
-  - `Error rendering html elements from a ref`, you can replace ref with shallowRef. This will allow you to render html elements from a ref without errors.
