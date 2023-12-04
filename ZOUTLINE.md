@@ -11,9 +11,30 @@ Press enter to proceed, enter project name, say no to other options except for T
 Run the following commands to install dependencies, format code and run the app:
 
 ```bash
+  cd project-name
   npm install
   npm run format
   npm run dev
+```
+
+## Update `tsconfig` to allow Vue usage without Typescript interference
+To enable Vue usage without Typescript interference, edit the `tsconfig.json` file and set the `noImplicitAny` property to `false` (to prevent errors while importing `.vue` files). Under the `compilerOptions`, add `"allowJs": true` to enable us write javascript without types. Your `tsconfig.json` should look like this:
+
+```json
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "exclude": ["src/**/__tests__/*"],
+  "noImplicitAny": false,
+  "compilerOptions": {
+    "composite": true,
+    "allowJs": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}
 ```
 
 ## Let Vue know we are here for Drag and Drop
@@ -83,6 +104,8 @@ The vue `template` of `TheWelcome.vue` component currently contains a list of `W
   {{ item.content }}
 </WelcomeItem>
 ```
+
+If you check console, you will notice that the app is throwing an error, '[Vue warn]: Vue received a Component which was made a reactive object. This can lead to unnecessary performance overhead, and should be avoided by marking the component with `markRaw` or using `shallowRef` instead of `ref`'. Replace ref with shallowRef to fix this error.
 
 ## Update the style of the `WelcomeItem` component
 
@@ -179,7 +202,10 @@ const handleDrop = (dropIndex) => {
 
 ## Conclusion
 
-We have successfully implemented drag and drop functionality in our app. You can now drag and drop the `WelcomeItem` components around. You can find the complete code for this project [here]().
+We have successfully implemented drag and drop functionality in our app. You can now drag and drop the `WelcomeItem` components around. You can find the complete code for this project [here](). To learn more about the HTML5 drag and drop API, you can check out the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API).
+
+## Next Steps
+
 
 
   ### Issues
