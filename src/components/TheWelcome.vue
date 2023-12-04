@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import { ref, shallowRef } from 'vue'
 import WelcomeItem from './WelcomeItem.vue'
 import DocumentationIcon from './icons/IconDocumentation.vue'
