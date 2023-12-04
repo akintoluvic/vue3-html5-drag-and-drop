@@ -38,7 +38,13 @@ To ensure everyone can follow along, we will disable typescript in this project.
 
 ## Let Vue know we are here for Drag and Drop
 
-Edit the `msg` props value passed to `HelloWorld` component in App.vue to `Drag and Drop` and save the file. The app should reload and display the new value. Then edit the `HelloWorld.vue` file and change the `h3` tag contents to this:
+Edit the `msg` props value passed to `HelloWorld` component in App.vue to `Drag and Drop` and save the file. The app should reload and display the new value. 
+
+```html
+<HelloWorld msg="Drag and Drop" />
+```
+
+Then edit the `HelloWorld.vue` file and change the `h3` tag contents to this:
 
 ```html
 <h3>
