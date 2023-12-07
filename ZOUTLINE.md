@@ -1,12 +1,16 @@
 # Vue 3 Html 5 Drag and Drop
 
+## Introduction
+
+Drag and drop is a common feature in many applications. It allows users to move items around by dragging them from one place and dropping them in another. In this tutorial, we will be building a drag and drop app with Vue 3 and the HTML5 drag and drop API. We will be using the [Vite](https://vitejs.dev/) build tool to scaffold our project. We will also be using the [Tailwind CSS](https://tailwindcss.com/) utility-first CSS framework to style our app. You can find the complete code for this project [here]().
+
 ## Project setup
 
 ```bash
 npm create vue@latest
 ```
 
-Press enter to proceed, enter project name, say no to other options except for Typescript, Eslint and Prettier.
+Press enter to proceed, enter a project name, and say no to other options except for Typescript, Eslint and Prettier.
 
 Run the following commands to install dependencies, format code and run the app:
 
@@ -18,7 +22,7 @@ Run the following commands to install dependencies, format code and run the app:
 ```
 
 ## Update `tsconfig`, so we can write javascript
-To ensure everyone can follow along, we will disable typescript in this project. We will be adding typescript and typing our code at the end of the project. Edit your `tsconfig.app.json` file, under the `compilerOptions`, add `"allowJs": true` to enable us write javascript without types. Your `tsconfig.app.json` should look like this:
+To ensure everyone can follow along, we will disable typescript in this project. We will be adding typescript and typing our code at the end of the project. Edit your `tsconfig.app.json` file, under the `compilerOptions`, and add `"allowJs": true` to enable us to write javascript without types. Your `tsconfig.app.json` should look like this:
 
 ```json
 {
@@ -38,7 +42,7 @@ To ensure everyone can follow along, we will disable typescript in this project.
 
 ## Let Vue know we are here for Drag and Drop
 
-Edit the `msg` props value passed to `HelloWorld` component in App.vue to `Drag and Drop` and save the file. The app should reload and display the new value. 
+Edit the `msg` props value passed to `HelloWorld` component in `App.vue` file to `Drag and Drop` and save the file. The app should reload and display the new value. 
 
 ```html
 <HelloWorld msg="Drag and Drop" />
@@ -99,7 +103,7 @@ To prevent typescript errors, remove the `lang="ts"` attribute from the `script`
 
 ## Render the data in the app
 
-The vue `template` of `TheWelcome.vue` component currently contains a list of `WelcomeItem` components. We will replace this with a list of `WelcomeItem` components that will be rendered using the data we added in the previous step. Replace the contents of the `template` tag with this:
+The vue `template` of `TheWelcome.vue` component currently contains a list of `WelcomeItem` components. We will replace this with a list of `WelcomeItem` components we will be rendering using the data we added in the previous step. Replace the contents of the `template` tag with this:
 
 ```html
 <WelcomeItem v-for="(item, index) in items" :key="index">
@@ -112,7 +116,7 @@ The vue `template` of `TheWelcome.vue` component currently contains a list of `W
 </WelcomeItem>
 ```
 
-If you check console, you will notice that the app is throwing an error, '[Vue warn]: Vue received a Component which was made a reactive object. This can lead to unnecessary performance overhead, and should be avoided by marking the component with `markRaw` or using `shallowRef` instead of `ref`'. Replace ref with shallowRef to fix this error.
+If you check your browser console, you will notice that the app is throwing an error, '[Vue warn]: Vue received a Component which was made a reactive object. This can lead to unnecessary performance overhead, and should be avoided by marking the component with `markRaw` or using `shallowRef` instead of `ref`'. Replace `ref` with `shallowRef` to fix this error.
 
 ## Update the style of the `WelcomeItem` component
 
@@ -164,7 +168,7 @@ We will use the `draggable` attribute to make the `WelcomeItem` component dragga
   </WelcomeItem>
   ```
 
-  You will notice that you can now drag the `WelcomeItem` components around. However, we need to add the drop functionality to make the drag and drop work. Edit the `TheWelcome.vue` file and add the `dragstart`, `dragover` and `drop` event handlers to the `WelcomeItem`. The `dragstart` event fires when an item gets dragged while the `dragover` with `.prevent` ensures that we can drop the dragged item. The `drop` event fires when an item is dropped on another item. Add the event handlers like this:
+  You can now drag the `WelcomeItem` components around. However, we need to add the drop functionality to make the drag and drop work. Edit the `TheWelcome.vue` file and add the `dragstart`, `dragover` and `drop` event handlers to the `WelcomeItem`. The `dragstart` event fires when an item gets dragged while the `dragover` with `.prevent` ensures that we can drop the dragged item. The `drop` event fires when an item is dropped on another item. Add the event handlers like this:
 
   ```html
 <WelcomeItem
@@ -186,7 +190,7 @@ We will use the `draggable` attribute to make the `WelcomeItem` component dragga
 
 ## Add the drag and drop methods
 
-First we will create a variable to store the item being dragged. Edit the `TheWelcome.vue` file and add the `draggedItem` variable to the `script` tag like this:
+First, we will create a variable to store the item being dragged. Edit the `TheWelcome.vue` file and add the `draggedItem` variable to the `script` tag like this:
 
 ```js
 const draggedItem = ref(0)
