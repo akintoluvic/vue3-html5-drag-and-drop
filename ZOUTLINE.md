@@ -123,19 +123,20 @@ If you check your browser console, you will notice that the app is throwing an e
 The `WelcomeItem` component is currently using the `WelcomeItem.vue` file. We will update the style of this component to make it look like a card. Edit the `WelcomeItem.vue` file and replace the media query styles in the `style` tag with this:
 
 ```css
+.dragover, .item:hover {
+  outline: 2px solid var(--color-border);
+  background-color: var(--color-background-mute);
+  border-radius: 15px;
+  cursor: pointer;
+}
+
 @media (min-width: 1024px) {
   .item {
     margin-top: 0;
     border-radius: 0.5rem;
     padding: 0.4rem 1rem 1rem calc(var(--section-gap) / 2);
   }
-
-  .item:hover {
-    outline: 2px solid var(--color-border);
-    background-color: var(--color-background-mute);
-    cursor: pointer;
-  }
-
+  
   i {
     top: 15px;
     left: 20px;
