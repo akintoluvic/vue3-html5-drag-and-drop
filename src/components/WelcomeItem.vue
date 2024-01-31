@@ -19,7 +19,7 @@
   position: relative;
 }
 
-.dragover {
+.dragover, .item:hover {
   outline: 2px solid var(--color-border);
   background-color: var(--color-background-mute);
   border-radius: 15px;
