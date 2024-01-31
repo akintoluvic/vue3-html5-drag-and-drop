@@ -25,6 +25,7 @@ h1 {
 
 h3 {
   font-size: 1.2rem;
+  color: var(--color-text);
 }
 
 .greetings h1,
