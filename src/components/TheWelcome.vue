@@ -7,7 +7,8 @@ import EcosystemIcon from './icons/IconEcosystem.vue'
 import CommunityIcon from './icons/IconCommunity.vue'
 import SupportIcon from './icons/IconSupport.vue'
 
-const draggedItem = ref(0)
+const draggedItem = ref(null)
+const draggedEnterItem = ref(null)
 
 const items = shallowRef([
   {
@@ -46,11 +47,18 @@ const handleDragStart = (startIndex) => {
   draggedItem.value = startIndex
 }
 
+const handleDragEnter = (index) => {
+  console.log(index)
+  draggedEnterItem.value = index
+}
+
 const handleDrop = (dropIndex) => {
   let tempArr = [...items.value]
   tempArr.splice(draggedItem.value, 1)
   tempArr.splice(dropIndex, 0, items.value[draggedItem.value])
   items.value = tempArr
+  draggedItem.value = null
+  draggedEnterItem.value = null
 }
 </script>
 
@@ -58,9 +66,11 @@ const handleDrop = (dropIndex) => {
   <WelcomeItem
     v-for="(item, index) in items"
     :key="index"
+    :class="{ dragover: draggedEnterItem === index || draggedItem === index}"
     draggable="true"
     @dragstart="handleDragStart(index)"
     @dragover.prevent
+    @dragenter.prevent="handleDragEnter(index)"
     @drop="handleDrop(index)"
   >
     <template #icon>

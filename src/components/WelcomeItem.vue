@@ -12,11 +12,17 @@
   </div>
 </template>
 
-<style scoped>
+<style >
 .item {
   margin-top: 2rem;
   display: flex;
   position: relative;
+}
+
+.dragover {
+  outline: 2px solid var(--color-border);
+  background-color: var(--color-background-mute);
+  border-radius: 15px;
 }
 
 .details {
