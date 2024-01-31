@@ -12,7 +12,7 @@
   </div>
 </template>
 
-<style >
+<style scoped>
 .item {
   margin-top: 2rem;
   display: flex;
@@ -23,6 +23,7 @@
   outline: 2px solid var(--color-border);
   background-color: var(--color-background-mute);
   border-radius: 15px;
+  cursor: pointer;
 }
 
 .details {
