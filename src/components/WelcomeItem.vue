@@ -12,7 +12,7 @@
   </div>
 </template>
 
-<style scoped>
+<style>
 .item {
   margin-top: 2rem;
   display: flex;
@@ -53,12 +53,6 @@ h3 {
     margin-top: 0;
     border-radius: 0.5rem;
     padding: 0.4rem 1rem 1rem calc(var(--section-gap) / 2);
-  }
-
-  .item:hover {
-    outline: 2px solid var(--color-border);
-    background-color: var(--color-background-mute);
-    cursor: pointer;
   }
 
   i {
