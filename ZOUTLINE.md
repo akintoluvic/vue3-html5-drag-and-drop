@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Drag and drop is a common feature in many applications. It allows users to move items around by dragging them from one place and dropping them in another. In this tutorial, we will be building a drag and drop app with Vue 3 and the HTML5 drag and drop API. We will be using the [Vite](https://vitejs.dev/) build tool to scaffold our project. We will also be using the [Tailwind CSS](https://tailwindcss.com/) utility-first CSS framework to style our app. You can find the complete code for this project [here]().
+Drag and drop is a common feature in many applications. It allows users to move items around by dragging them from one place and dropping them in another. In this tutorial, we will be building a drag and drop app with Vue 3 and the HTML5 drag and drop API. We will be using the [Vite](https://vitejs.dev/) build tool to scaffold our project.
 
 ## Project setup
 
@@ -136,7 +136,7 @@ The `WelcomeItem` component is currently using the `WelcomeItem.vue` file. We wi
     border-radius: 0.5rem;
     padding: 0.4rem 1rem 1rem calc(var(--section-gap) / 2);
   }
-  
+
   i {
     top: 15px;
     left: 20px;
